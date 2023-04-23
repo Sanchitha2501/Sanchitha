@@ -5,7 +5,7 @@
 int main() 
 {
     float real, imaginary;
-    printf("Enter a complex number: ");
+    printf("Enter a complex number(in the format{a,b}i): ");
     scanf("{%f,%f}i", &real, &imaginary);
     printf("The complex number is: %.2f + %.2fi\n", real, imaginary);
     
