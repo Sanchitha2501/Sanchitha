@@ -1,0 +1,21 @@
+//Program to remove all characters from string except alphabets and whitespace.
+
+#include <stdio.h>
+
+int main() {
+    char str[100], newstr[100];
+    int i, j;
+    printf("Enter a string: ");
+    scanf("%[^\n]", str);
+    for (i = 0, j = 0; str[i] != '\0'; i++) {
+        if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z') || str[i] == ' ')
+        {
+            newstr[j] = str[i];
+            j++;
+        }
+    }
+    newstr[j] = '\0';
+    printf("New string is: %s\n", newstr);
+
+    return 0;
+}
