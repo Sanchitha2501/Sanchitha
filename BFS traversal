@@ -60,15 +60,15 @@ void bfs(struct node* root)
     queue[rear++] = root;
     while (front < rear) 
     {
-        struct node* curr = queue[front++];
-        printf("%d ", curr->data);
-        if (curr->left != NULL) 
+        struct node* current = queue[front++];
+        printf("%d ", current->data);
+        if (current->left != NULL) 
         {
-            queue[rear++] = curr->left;
+            queue[rear++] = current->left;
         }
-        if (curr->right != NULL) 
+        if (current->right != NULL) 
         {
-            queue[rear++] = curr->right;
+            queue[rear++] = current->right;
         }
     }
 }
