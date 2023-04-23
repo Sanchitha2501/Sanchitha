@@ -89,7 +89,7 @@ int main()
     int n, value;
     printf("Enter number of nodes: ");
     scanf("%d", &n);
-    printf("Enter values:\n");
+    printf("Enter values(one in a line):\n");
     for (int i = 0; i < n; i++) 
     {
         scanf("%d", &value);
