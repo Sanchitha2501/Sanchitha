@@ -1,0 +1,13 @@
+//Program to read complex numbers.
+
+#include <stdio.h>
+
+int main() 
+{
+    float real, imaginary;
+    printf("Enter a complex number: ");
+    scanf("{%f,%f}i", &real, &imaginary);
+    printf("The complex number is: %.2f + %.2fi\n", real, imaginary);
+    
+    return 0;
+}
