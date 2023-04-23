@@ -23,26 +23,26 @@ struct node* insert(struct node* root, int value)
     {
         return create(value);
     }
-    struct node* curr = root;
-    while (curr != NULL) 
+    struct node* current = root;
+    while (current != NULL) 
     {
-        if (value > curr->data) 
+        if (value > current->data) 
         {
-            if (curr->right == NULL) 
+            if (current->right == NULL) 
             {
-                curr->right = create(value);
+                current->right = create(value);
                 break;
             }
-            curr = curr->right;
+            current = current->right;
         } 
-        else if (value < curr->data) 
+        else if (value < current->data) 
         {
-            if (curr->left == NULL) 
+            if (current->left == NULL) 
             {
-                curr->left = create(value);
+                current->left = create(value);
                 break;
             }
-            curr = curr->left;
+            current = current->left;
         } 
     }
     
