@@ -15,7 +15,6 @@ int main()
     int i = 0;
     while (i < input_len) 
     {
-        // extract name
         int j = 0;
         while (input[i] != ',') 
         {
@@ -23,8 +22,6 @@ int main()
         }
         name[j] = '\0'; 
         i++; 
-
-        // extract grade
         j = 0;
         while (input[i] != ';' && input[i] != '\0') 
         {
@@ -33,7 +30,6 @@ int main()
         }
         grade = j;
         i++; 
-
         printf("%s: %d\n", name, grade);
     }
 }
