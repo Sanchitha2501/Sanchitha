@@ -90,12 +90,14 @@ struct node* deleteNode(struct node* root, int value)
         {
             struct node *temp = root->right;
             free(root);
+            
             return temp;
         } 
         else if (root->right == NULL) 
         {
             struct node *temp = root->left;
             free(root);
+            
             return temp;
         }
         struct node *temp = minValue(root->right);
