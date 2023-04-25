@@ -11,12 +11,24 @@ int main()
     scanf("%[^\n]%*c", input);
     printf("Enter delimiter:");
     scanf("%c", &delimiter);
-    
-    char *token;
-    token = strtok(input, &delimiter);
-    while (token != NULL) 
+
+    int i, j;
+    char token[100];
+    for (i = 0, j = 0; input[i] != '\0'; i++)
     {
-        printf("%s\n", token);
-        token = strtok(NULL,  &delimiter);
+        if (input[i] == delimiter) 
+        {
+            token[j] = '\0';
+            printf("%s\n", token);
+            j = 0;
+        } 
+        else 
+        {
+            token[j] = input[i];
+            j++;
+        }
     }
+    token[j] = '\0';
+    printf("%s\n", token);
+    return 0;
 }
