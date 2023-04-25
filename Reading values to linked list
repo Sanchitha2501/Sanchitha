@@ -1,0 +1,59 @@
+//Program to take input for a linked list and sort the order. The user can add numbers to the list until they enter a negative number.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+void insert(struct Node** head, int data) 
+{
+    struct Node* new = (struct Node*) malloc(sizeof(struct Node));
+    new->data = data;
+    new->next = NULL;
+    if (*head == NULL || data < (*head)->data)
+    {
+        new->next = *head;
+        *head = new;
+    } 
+    else 
+    {
+        struct Node* current = *head;
+        while (current->next != NULL && current->next->data < data) 
+        {
+            current = current->next;
+        }
+        new->next = current->next;
+        current->next = new;
+    }
+}
+
+void printList(struct Node* head) 
+{
+    while (head != NULL) 
+    {
+        printf("%d ", head->data);
+        head = head->next;
+    }
+}
+
+int main() 
+{
+    int data;
+    struct Node* head = NULL;
+ 
+    printf("Enter numbers (end with negative number):\n");
+    scanf("%d", &data);
+    while (data >= 0) 
+    {
+        insert(&head, data);
+        scanf("%d", &data);
+    }
+    
+    printf("Linked list:\n");
+    printList(head);
+    
+    return 0;
+}

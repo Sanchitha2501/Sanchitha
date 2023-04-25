@@ -1,0 +1,80 @@
+//Program that reads in a string of key-value pairs separated by semicolons and outputs the average value for a specific key.
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main() {
+    char str[1000];
+    char key[50];
+    int sum = 0, count = 0;
+    double avg;
+    printf("Enter key-value pairs separated by semicolon: ");
+    scanf("%[^\n]s", str);
+    printf("Enter key: ");
+    scanf("%s", key);
+    char *token = str;
+    while (*token != '\0') 
+    {
+        char *k = token;
+        while (*token != ':' && *token != '\0') 
+        {
+            token++;
+        }
+        if (*token == '\0') 
+        {
+            break;
+        }
+        *token = '\0';
+        token++;
+
+        char *v = token;
+        while (*token != ';' && *token != '\0') 
+        {
+            token++;
+        }
+        if (*token == '\0') 
+        {
+            token--;
+        }
+        *token = '\0';
+        token++;
+        
+        int match = 1;
+        char *p = k;
+        char *q = key;
+        while (*p != '\0' && *q != '\0') 
+        {
+            if (*p != *q) 
+            {
+                match = 0;
+                break;
+            }
+            p++;
+            q++;
+        }
+        if (match && *q == '\0') 
+        {
+            int value = 0;
+            p = v;
+            while (*p != '\0') 
+            {
+                value = value * 10 + (*p - '0');
+                p++;
+            }
+            sum += value;
+            count++;
+        }
+    }
+    if (count == 0) 
+    {
+        printf("No values found \n");
+    } 
+    else 
+    {
+        avg = (double)sum / count;
+        printf("The average value of key is %.2f.\n",avg);
+    }
+
+    return 0;
+}

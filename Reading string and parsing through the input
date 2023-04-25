@@ -1,0 +1,48 @@
+//Program that reads in a string from the user in the format "name:score1,score2,score3", where "name" is a string and "scores" are integers separated by commas.
+  Then compute the average score and output it to the console.
+
+#include <stdio.h>
+
+int main() 
+{
+    char input[100];
+    printf("Enter a string in the format 'name:score1,score2,score3': ");
+    scanf("%[^\n]s", input); 
+    char name[20]; 
+    int score1, score2, score3;
+    int i = 0, j = 0, k = 0;
+    while (input[i] != ':') 
+    {
+        name[j] = input[i];
+        i++;
+        j++;
+    }
+    name[j] = '\0'; 
+    i++;
+    while (input[i] != '\0') 
+    {
+        if (input[i] == ',') 
+        {
+            k++;
+        }
+        else if (k == 0) 
+        {
+            score1 = score1 * 10 + (input[i] - '0');
+        } 
+        else if (k == 1) 
+        {
+            score2 = score2 * 10 + (input[i] - '0');
+        } 
+        else if (k == 2) 
+        {
+            score3 = score3 * 10 + (input[i] - '0');
+        }
+        i++;
+    }
+    float avg_score = (float)(score1 + score2 + score3) / 3;
+    printf("Name: %s\n", name);
+    printf("Scores: %d, %d, %d\n", score1, score2, score3);
+    printf("Average score: %.2f\n", avg_score);
+
+    return 0;
+}

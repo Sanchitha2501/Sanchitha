@@ -1,0 +1,23 @@
+//Program to convert string to integer values without using inbuilt function.
+
+#include <stdio.h>
+
+int string_to_int(char string_num[]) {
+    int num = 0;
+    for (int i = 0; string_num[i] != '\0'; i++) {
+        num = num * 10 + (string_num[i] - '0');
+    }
+    
+    return num;
+}
+
+int main() 
+{
+    char str[100];
+    printf("Enter a number as a string: ");
+    scanf("%s", str);
+    int num = string_to_int(str);
+    printf("The integer value is %d\n", num);
+    
+    return 0;
+}

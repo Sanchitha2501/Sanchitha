@@ -1,0 +1,55 @@
+//Program prompts the user to enter a string of space-separated values representing a matrix of integers and then checks if the matrix is symmetric.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() 
+{
+    int matrix[3][3];
+    int i = 0, j = 0, num = 0;
+    printf("Enter matrix values (9 integers separated by spaces):\n");
+    for (i = 0; i < 3; i++) 
+    {
+        for (j = 0; j < 3; j++) 
+        {
+            scanf("%d", &num);
+            matrix[i][j] = num;
+        }
+    }
+    printf("Entered matrix:\n");
+    for (i = 0; i < 3; i++) 
+    {
+        for (j = 0; j < 3; j++) 
+        {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+
+    int symmetric = 1;
+    for (i = 0; i < 3; i++) 
+    {
+        for (j = 0; j < 3; j++) 
+        {
+            if (matrix[i][j] != matrix[j][i])
+            {
+                symmetric = 0;
+                break;
+            }
+        }
+        if (symmetric == 0) 
+        {
+            break;
+        }
+    }
+    if (symmetric)
+    {
+        printf("Matrix is symmetric.\n");
+    } 
+    else 
+    {
+        printf("Matrix is not symmetric.\n");
+    }
+
+    return 0;
+}

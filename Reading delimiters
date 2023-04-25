@@ -1,0 +1,34 @@
+//Program to read custom delimiters from and input string.
+
+#include <stdio.h>
+#include <string.h>
+
+int main() 
+{
+    char input[100];
+    char delimiter;
+    printf("Enter string: ");
+    scanf("%[^\n]%*c", input);
+    printf("Enter delimiter:");
+    scanf("%c", &delimiter);
+
+    int i, j;
+    char token[100];
+    for (i = 0, j = 0; input[i] != '\0'; i++)
+    {
+        if (input[i] == delimiter) 
+        {
+            token[j] = '\0';
+            printf("%s\n", token);
+            j = 0;
+        } 
+        else 
+        {
+            token[j] = input[i];
+            j++;
+        }
+    }
+    token[j] = '\0';
+    printf("%s\n", token);
+    return 0;
+}
